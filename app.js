@@ -25,6 +25,8 @@ const whitelist = ['https://wander-xggp.onrender.com'];
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
+    console.log('origin', origin);
+    console.log('whitelist', whitelist);
     if (whitelist.includes(origin)) return callback(null, true);
 
     callback(new Error('Not allowed by CORS'));
