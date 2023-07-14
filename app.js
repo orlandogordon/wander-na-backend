@@ -85,8 +85,6 @@ app.use(compression());
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Credentials', true);
   next();
 });
 
