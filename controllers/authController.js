@@ -64,6 +64,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.checkLogin = catchAsync(async (req, res, next) => {
   const cookie = req.cookies;
+  console.log(cookie);
   if ('jwt' in cookie && cookie.jwt !== 'loggedout') {
     const decoded = await promisify(jwt.verify)(
       cookie.jwt,
