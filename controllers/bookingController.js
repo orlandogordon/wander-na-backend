@@ -33,10 +33,10 @@ exports.getCheckoutSession = async (req, res, next) => {
     // success_url: `${req.protocol}://${req.get('host')}/`, //user will be redirected to this url when payment is successful. home page
     // cancel_url: `${req.protocol}://${req.get('host')}/${tour.slug}`, //user will be redirected to this url when payment has an issue. tour page (previous page)
     // success_url: `http://localhost:3500/my-tours/?tour=${req.params.tourId}&user=${req.user.id}&price=${tour.price}&startDate=${req.params.startDate}`,
-    success_url: `http://localhost:3000/confirm-booking/?tour=${req.params.tourId}&user=${req.user.id}&price=${tour.price}&startDate=${req.params.startDate}`,
+    success_url: `https://wander-xggp.onrender.com/confirm-booking/?tour=${req.params.tourId}&user=${req.user.id}&price=${tour.price}&startDate=${req.params.startDate}`,
     //success_url: `http://localhost:3000/my-tours?alert=booking`,
     //success_url: `${req.protocol}://${req.get('host')}/my-tours?alert=booking`,
-    cancel_url: `http://localhost:3000/tours/${req.params.tourId}`,
+    cancel_url: `https://wander-xggp.onrender.com/tours/${req.params.tourId}`,
     // cancel_url: `${req.protocol}://${req.get('host')}/tour/${
     //   req.params.tourId
     // }`,
