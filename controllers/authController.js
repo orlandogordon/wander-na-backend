@@ -31,6 +31,7 @@ const createSendToken = (user, statusCode, res) => {
       user,
     },
   });
+  console.log('res', res.status.token);
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
@@ -64,7 +65,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.checkLogin = catchAsync(async (req, res, next) => {
   const cookie = req.cookies;
-  console.log(cookie);
+  console.log('cookie', cookie);
   if ('jwt' in cookie && cookie.jwt !== 'loggedout') {
     const decoded = await promisify(jwt.verify)(
       cookie.jwt,
