@@ -22,7 +22,6 @@ const createSendToken = (user, statusCode, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'none',
-    domain: 'wander-xggp.onrender.com',
   };
   res.cookie('jwt', token, cookieOptions);
 
@@ -103,7 +102,6 @@ exports.logout = (req, res) => {
     httpOnly: true,
     sameSite: 'None',
     secure: true,
-    domain: 'wander-xggp.onrender.com',
   });
   res.status(200).json({ status: 'success', message: 'Cookie cleared.' });
 };
