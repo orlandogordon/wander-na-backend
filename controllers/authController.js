@@ -67,7 +67,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.checkLogin = catchAsync(async (req, res, next) => {
   const cookie = req.cookies;
-  console.log('cookie', cookie);
+
   if ('jwt' in cookie && cookie.jwt !== 'loggedout') {
     const decoded = await promisify(jwt.verify)(
       cookie.jwt,
@@ -95,10 +95,11 @@ exports.checkLogin = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = (req, res) => {
-  res.cookie('jwt', 'loggedout', {
-    expires: new Date(Date.now() + 10 * 1000),
-    httpOnly: true,
-  });
+  // res.cookie('jwt', 'loggedout', {
+  //   expires: new Date(Date.now() + 10 * 1000),
+  //   httpOnly: true,
+  // });
+  res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
   res.status(200).json({ status: 'success', message: 'Cookie cleared.' });
 };
 
