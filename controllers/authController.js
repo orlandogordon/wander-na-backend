@@ -22,7 +22,7 @@ const createSendToken = (user, statusCode, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'none',
-    // Domain: 'wander-xggp.onrender.com',
+    domain: 'wander-xggp.onrender.com',
   };
   res.cookie('jwt', token, cookieOptions);
 
@@ -99,7 +99,12 @@ exports.logout = (req, res) => {
   //   expires: new Date(Date.now() + 10 * 1000),
   //   httpOnly: true,
   // });
-  res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+  res.clearCookie('jwt', {
+    httpOnly: true,
+    sameSite: 'None',
+    secure: true,
+    domain: 'wander-xggp.onrender.com',
+  });
   res.status(200).json({ status: 'success', message: 'Cookie cleared.' });
 };
 
