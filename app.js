@@ -21,7 +21,7 @@ const root = require('./routes/root');
 const app = express();
 app.use(cookieParser());
 
-const whitelist = ['https://wander-xggp.onrender.com'];
+const whitelist = ['https://wander-xggp.onrender.com', 'http://localhost:3000'];
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
