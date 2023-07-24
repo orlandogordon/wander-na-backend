@@ -15,13 +15,15 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
-const bookingController = require('./controllers/bookingController');
 const root = require('./routes/root');
 
 const app = express();
 app.use(cookieParser());
 
-const whitelist = ['https://wander-xggp.onrender.com', 'http://localhost:3000'];
+const whitelist = [
+  'https://wander-xggp.onrender.com',
+  'wander-xggp.onrender.com',
+];
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
@@ -93,13 +95,6 @@ app.use('/', root);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
-  // if (req.accepts('html')) {
-  //   res.sendFile(path.join(__dirname, 'views', '404.html'));
-  // } else if (req.accepts('json')) {
-  //   res.json({ message: '404 Not Found' });
-  // } else {
-  //   res.type('txt').send('404 Not Found');
-  // }
 });
 
 app.use(globalErrorHandler);
