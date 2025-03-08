@@ -23,6 +23,7 @@ app.use(cookieParser());
 const whitelist = [
   'https://wander-xggp.onrender.com',
   'wander-xggp.onrender.com',
+  'http://localhost:3000'
 ];
 const corsOptions = {
   credentials: true, // This is important.
