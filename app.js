@@ -20,15 +20,10 @@ const root = require('./routes/root');
 const app = express();
 app.use(cookieParser());
 
-const whitelist = [
-  'https://wander-xggp.onrender.com',
-  'wander-xggp.onrender.com',
-  'http://localhost:3000'
-];
 const corsOptions = {
-  credentials: true, // This is important.
+  credentials: true,
   origin: (origin, callback) => {
-    if (whitelist.includes(origin) || !origin) {
+    if (!origin || origin === process.env.FRONTEND_URL) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

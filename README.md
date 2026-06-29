@@ -43,7 +43,7 @@ JWT_SECRET=your-jwt-secret-min-32-chars
 JWT_EXPIRES_IN=90d
 JWT_COOKIE_EXPIRES_IN=90
 
-FRONTEND_URL=http://localhost:3000
+FRONTEND_URL=http://localhost:3000   # controls CORS whitelist and Stripe redirect URLs
 
 # Stripe
 STRIPE_SECRET_KEY=sk_test_...
