@@ -16,8 +16,6 @@ REST API backend for a tour booking application. Built with Node.js, Express, an
 | Database | MongoDB via Mongoose 8 |
 | Auth | JWT (httpOnly cookie) + bcryptjs |
 | Payments | Stripe |
-| Email (dev) | Nodemailer + Mailtrap |
-| Email (prod) | SendGrid |
 | Image processing | Multer + Sharp |
 
 ---
@@ -44,18 +42,6 @@ DATABASE_PASSWORD=yourMongoPassword
 JWT_SECRET=your-jwt-secret-min-32-chars
 JWT_EXPIRES_IN=90d
 JWT_COOKIE_EXPIRES_IN=90
-
-# Dev email (Mailtrap)
-EMAIL_HOST=smtp.mailtrap.io
-EMAIL_PORT=25
-EMAIL_USERNAME=yourMailtrapUser
-EMAIL_PASSWORD=yourMailtrapPassword
-EMAIL_FROM=hello@wander.dev
-
-# Production email (SendGrid)
-SENDGRID_USERNAME=apikey
-SENDGRID_PASSWORD=yourSendGridApiKey
-SENDGRID_EMAIL_FROM=hello@wander.dev
 
 # Stripe
 STRIPE_SECRET_KEY=sk_test_...
@@ -91,7 +77,7 @@ Auth uses a JWT stored in a `httpOnly` secure cookie (`sameSite: none`). All pro
 | POST | `/api/v1/users/login` | Public | Login; sets JWT cookie |
 | GET | `/api/v1/users/checkLogin` | Public | Returns login status and userId from cookie |
 | GET | `/api/v1/users/logout` | Public | Clears JWT cookie |
-| POST | `/api/v1/users/forgotPassword` | Public | Sends password reset email (valid 10 min) |
+| POST | `/api/v1/users/forgotPassword` | Public | Returns a password reset token in the response (valid 10 min) |
 | PATCH | `/api/v1/users/resetPassword/:token` | Public | Resets password using emailed token |
 
 ### Users
