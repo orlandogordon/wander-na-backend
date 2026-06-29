@@ -43,6 +43,8 @@ JWT_SECRET=your-jwt-secret-min-32-chars
 JWT_EXPIRES_IN=90d
 JWT_COOKIE_EXPIRES_IN=90
 
+FRONTEND_URL=http://localhost:3000
+
 # Stripe
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
